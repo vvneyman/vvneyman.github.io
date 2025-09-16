@@ -1,0 +1,67 @@
+body {
+    margin: 0;
+    height: 100vh;
+    background: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+        
+.word {
+    display: flex;
+    align-items: baseline;
+}
+        
+.letter {
+    color: #000000;
+    font-size: 8vw;
+    margin: 0 0.2vw;
+    user-select: none;
+}
+
+.e1 { 
+    font-weight: 10; 
+    font-family: 'Arial', sans-serif;
+} 
+
+.x  { 
+    font-weight: 100; 
+    font-family: 'Arial', sans-serif;
+}
+
+.p  { 
+    font-weight: 450; 
+    font-family: 'Arial', sans-serif;
+}
+
+.a  { 
+    font-weight: 900; 
+    font-family: 'Arial Black', sans-serif;
+}
+
+.n  { 
+    font-weight: 1000; 
+    font-family: 'Arial Black', sans-serif;
+    font-stretch: ultra-expanded;
+} /* Extremely thick at center */
+        
+.s  { 
+    font-weight: 900; 
+    font-family: 'Arial Black', sans-serif;
+}
+
+.i  { 
+    font-weight: 450; 
+    font-family: 'Arial', sans-serif;
+}
+
+.o  { 
+    font-weight: 100; 
+    font-family: 'Arial', sans-serif;
+}
+
+.e2 { 
+    font-weight: 10; 
+    font-family: 'Arial', sans-serif;
+}
