@@ -11,6 +11,23 @@ body {
 .word {
     display: flex;
     align-items: baseline;
+    z-index: 1;
+}
+
+.container {
+    position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: darkred;
+    animation: grow 5s infinite;
+    z-index: 0;
+
+    @keyframes grow {
+        0% {transform: scale(1);} 
+        50% {transform: scale(1.2);} 
+        100% {transform: scale(2);} 
+    }
 }
         
 .letter {
@@ -18,50 +35,80 @@ body {
     font-size: 8vw;
     margin: 0 0.2vw;
     user-select: none;
+    z-index: 1;
 }
 
 .e1 { 
     font-weight: 10; 
     font-family: 'Arial', sans-serif;
+    animation: growShrink 5s infinite;
 } 
 
 .x  { 
     font-weight: 100; 
     font-family: 'Arial', sans-serif;
+    animation: growShrink 5s infinite;
 }
 
 .p  { 
     font-weight: 450; 
     font-family: 'Arial', sans-serif;
+    animation: growShrink 5s infinite;
 }
 
 .a  { 
     font-weight: 900; 
     font-family: 'Arial Black', sans-serif;
+    animation: growShrink 5s infinite;
 }
 
 .n  { 
     font-weight: 1000; 
     font-family: 'Arial Black', sans-serif;
     font-stretch: ultra-expanded;
-} /* Extremely thick at center */
+    animation: growShrink 5s infinite;
+} 
         
 .s  { 
     font-weight: 900; 
     font-family: 'Arial Black', sans-serif;
+    animation: growShrink 5s infinite;
 }
 
 .i  { 
     font-weight: 450; 
     font-family: 'Arial', sans-serif;
+    animation: growShrink 5s infinite;
 }
 
 .o  { 
     font-weight: 100; 
     font-family: 'Arial', sans-serif;
+    animation: growShrink 5s infinite;
 }
 
 .e2 { 
     font-weight: 10; 
     font-family: 'Arial', sans-serif;
+    animation: growShrink 5s infinite;
+}
+
+@keyframes growShrink {
+     0% {transform: scale(1);} 
+    
+    50% { 
+        transform: scale(3); 
+    }
+
+    100% { 
+        transform: scale(2); 
+    }
+
+    50% { 
+        transform: scale(3); 
+    }
+    
+    10% {transform: scale(1.5);} 
+    
+    0% {transform: scale(1);}  
 }
