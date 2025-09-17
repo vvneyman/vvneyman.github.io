@@ -1,0 +1,120 @@
+body {
+    background-color: rgb(224, 216, 204);
+}
+
+.center-text {
+    color: rgb(146, 131, 131);
+    font-size: 10vw;
+    letter-spacing: 2vw;
+    font-weight: bold;
+    font-family: 'Didot', sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    width: 100vw;
+    top: 300px;
+    position: absolute;
+    z-index: 0;
+} 
+
+.circle {
+    width: 200px;
+    height: 200px;
+    background-color: lightblue;
+    border-radius: 50%;
+    align-self: center;
+    position: absolute;
+    animation-name: colorchange;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+
+@keyframes colorchange {
+    0% {background-color: lightblue;}
+    25% {background-color: #7fa7b7;}
+    50% {background-color: rgb(86, 112, 119);}
+    75% {background-color: rgb(45, 52, 56);}
+    100% {background-color: rgb(166, 186, 195);}
+}
+
+.circlenext {
+    width: 200px;
+    height: 200px;
+    left: 250px;
+    background-color: rgba(158, 194, 230, 0.848);
+    border-radius: 50%;
+    align-self: center;
+    position: absolute;
+    animation-name: colorchange2, float;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    z-index: 1;
+}
+
+.circledown {
+    width: 200px;
+    height: 200px;
+    top: 650px;
+    background-color: rgba(158, 194, 230, 0.848);
+    border-radius: 50%;
+    align-self: center;
+    position: absolute;
+    animation-name: colorchange2, reversefloat;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    z-index: 1;
+}
+
+@keyframes colorchange2 {
+    0% {background-color: rgba(173, 216, 230, 0.591);}
+    25% {background-color: #7fa7b74f;}
+    50% {background-color: rgba(86, 112, 119, 0.463);}
+    75% {background-color: rgb(45, 52, 56);}
+    100% {background-color: rgba(166, 186, 195, 0.634);}
+}
+
+@keyframes float {
+    0% {transform: translateY(0px);}
+    10% {transform: translateY(+20px);}
+    20% {transform: translateY(+60px);}
+    30% {transform: translateY(+100px);}
+    40% {transform: translateY(+200px);}
+    50% {transform: translateY(+400px);}
+}
+
+@keyframes reversefloat {
+    0% {transform: translateY(0px);}
+    10% {transform: translateY(-20px);}
+    20% {transform: translateY(-60px);}
+    30% {transform: translateY(-100px);}
+    40% {transform: translateY(-200px);}
+    50% {transform: translateY(-300px);}
+}
+
+.circlebig {
+    width: 800px;
+    height: 800px;
+    background-color: lightblue;
+    border-radius: 50%;
+    align-self: center;
+    position: absolute;
+    left: 1100px;
+    top: 300px;
+    z-index: -1;
+    bottom: 300px;
+    animation-name: flicker;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes flicker {
+    0% {background-color: rgb(173, 216, 230);}
+    25% {background-color: #7fa7b793;}
+    50% {background-color: rgba(86, 112, 119, 0.273);}
+    75% {background-color: rgba(45, 52, 56, 0);}
+    100% {background-color: rgba(166, 186, 195, 0.468);}
+}
