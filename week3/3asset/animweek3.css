@@ -1,0 +1,260 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #2a2a2a;
+}
+
+body.on {
+    background: radial-gradient(#181513, #111)
+}
+
+.light {
+        position: relative;
+        transform: translateY(-300px); 
+        transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+body.on .light {
+    transform: translateY(0); 
+}
+
+.wire {
+    position: absolute;
+    left: calc(50% - 2px);
+    bottom: 50%;
+    width: 4px;
+    height: 60vh;
+    background: #000000;
+    z-index: 1;
+}
+
+.bulb {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    background: #766a62;
+    border-radius: 50%;
+    z-index: 2;
+    transition: all 0.5s ease;
+}
+
+.bulb:before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: 22.5px;
+    width: 35px;
+    height: 80px;
+    background: #826e55;
+    border-radius: 10%;
+    border-top: 30px solid #000;
+    transition: background 0.5s ease;
+}
+
+body.on .bulb::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120px;
+  height: 120px;
+  background: #fff;
+  border-radius: 50%;
+  filter: blur(40px);
+  animation: glow-pulse 0.1s infinite alternate;
+}
+
+body.on .bulb {
+  background-color: #fff;
+  box-shadow: 0 0 50px #fff, 0 0 100px #fff, 0 0 150px #fff, 0 0 200px #fff,
+    0 0 250px #fff, 0 0 300px #fff, 0 0 350px #fff;
+  animation: flicker 0.15s infinite alternate;
+}
+
+@keyframes flicker {
+    0% { 
+        opacity: 1; 
+        box-shadow: 0 0 50px #fff, 0 0 100px #fff, 0 0 150px #fff, 0 0 200px #fff,
+                    0 0 250px #fff, 0 0 300px #fff, 0 0 350px #fff;
+    }
+    100% { 
+        opacity: 0.95; 
+        box-shadow: 0 0 45px #fff, 0 0 90px #fff, 0 0 135px #fff, 0 0 180px #fff,
+                    0 0 225px #fff, 0 0 270px #fff, 0 0 315px #fff;
+    }
+}
+
+@keyframes glow-pulse {
+    0% { opacity: 0.8; }
+            100% { opacity: 1; }
+}
+
+body.on .bulb::before {
+  background: #fff;
+}
+
+body.on .bulb span:nth-child(1) {
+  box-shadow: 20px 20px 0 10px #fff;
+  transition: box-shadow 0.3s ease;
+}
+
+body.on .bulb span:nth-child(2) {
+  box-shadow: -20px 20px 0 10px #fff;
+  transition: box-shadow 0.3s ease;
+}
+
+.bulb span:nth-child(1) {
+  position: absolute;
+  top: -16px;
+  left: -4px;
+  display: block;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  transform: rotate(342deg);
+  border-bottom-right-radius: 40px;
+  box-shadow: 20px 20px 0 10px #766a62;
+  transition: box-shadow 0.3s ease;
+}
+
+.bulb span:nth-child(2) {
+  position: absolute;
+  top: -16px;
+  right: -4px;
+  display: block;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  transform: rotate(17deg);
+  border-bottom-left-radius: 40px;
+  box-shadow: -20px 20px 0 10px #766a62;
+  transition: box-shadow 0.3s ease;
+}
+
+.switch {
+  position: fixed;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(#eee, #ccc, #eee);
+  border: 3px solid #000;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: gray 0px 20px 30px -10px;
+  z-index: 100;
+}
+
+.switch .btn {
+  position: relative;
+  width: 25px;
+  height: 40px;
+  background: linear-gradient(#777, #fff, #777);
+  border-radius: 6px;
+  border: 2px solid #000;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.switch .btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 85%;
+  background: linear-gradient(#fff, #fff);
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.on .switch .btn::before {
+  top: 15%;
+}
+
+.moth {
+    position: absolute;
+    width: 20px;
+    height: 15px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+    z-index: 75;
+}
+
+.moth.visible {
+    opacity: 0.8;
+        }
+
+.moth-body {
+    width: 2px;
+    height: 12px;
+    background: #8b4513;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+        }
+
+.moth-wing {
+    position: absolute;
+    background: rgba(139, 69, 19, 0.6);
+    border-radius: 50%;
+}
+
+.moth-wing.left {
+    width: 8px;
+    height: 10px;
+    left: 2px;
+    top: 2px;
+    animation: flutter-left 0.2s infinite alternate;
+}
+
+.moth-wing.right {
+    width: 8px;
+    height: 10px;
+    right: 2px;
+    top: 2px;
+    animation: flutter-right 0.2s infinite alternate;
+}
+
+@keyframes flutter-left {
+    0% { transform: rotate(-10deg); }
+    100% { transform: rotate(-30deg); }
+}
+
+@keyframes flutter-right {
+    0% { transform: rotate(10deg); }
+    100% { transform: rotate(30deg); }
+}
+
+.moth-antennae {
+    position: absolute;
+    width: 1px;
+    height: 4px;
+    background: #8b4513;
+    left: 8px;
+    top: 0;
+}
+
+.moth-antennae::after {
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 4px;
+    background: #8b4513;
+    left: 2px;
+    top: 0;
+}
