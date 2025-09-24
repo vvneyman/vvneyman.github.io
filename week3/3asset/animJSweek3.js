@@ -1,6 +1,6 @@
-
 const btn = document.querySelector('.btn');
 const body = document.body;
+const lightElement = document.querySelector('.light');
 
 const moths = [
     document.getElementById('moth1'),
@@ -17,6 +17,24 @@ let mothPositions = [
 let isLightOn = false;
 let animationId;
 
+// Initialize moth positions at screen center
+function initializeMoths() {
+    const centerX = window.innerWidth / 2;
+    const centerY = window.innerHeight / 2;
+    
+    mothPositions.forEach((moth, index) => {
+        moth.x = centerX;
+        moth.y = centerY;
+        moth.targetX = centerX;
+        moth.targetY = centerY;
+        
+        if (moths[index]) {
+            moths[index].style.left = moth.x + 'px';
+            moths[index].style.top = moth.y + 'px';
+        }
+    });
+}
+
 btn.addEventListener('click', function() {
     toggleLight();
 });
@@ -27,14 +45,17 @@ function toggleLight() {
     if (isLightOn) {
         body.classList.add('on');
         
+        // Initialize moth positions when light turns on
+        initializeMoths();
         
-        moths.forEach(moth => {
-            if (moth) moth.classList.add('visible');
-        });
+        setTimeout(() => {
+            moths.forEach(moth => {
+                if (moth) moth.classList.add('visible');
+            });
+        }, 400); // Delay to match lightbulb drop animation
         
         startMothAnimation();
     } else {
-    
         body.classList.remove('on');
         
         moths.forEach(moth => {
