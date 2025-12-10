@@ -1,0 +1,79 @@
+* {
+  box-sizing:border-box;
+    height: 170px;
+    width: 150px;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+:root {
+  --yellow: rgb(221, 215, 141);
+  --peach: rgb(220, 191, 133);
+  --chocolate: rgb(139, 99, 92);
+  --khaki: rgb(96, 89, 77);
+  --grey: rgb(147, 162, 155);
+
+  --mix-warm: red;
+  --mix-cool: blue;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 10rem 1fr;
+  gap: 1rem;
+}
+
+.palette {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+
+  & > div {
+    --color: var(--yellow);
+    aspect-ratio: 1;
+    background: var(--color);
+
+    &:nth-child(2) {
+      --color: var(--peach);
+    }
+
+    &:nth-child(3) {
+      --color: var(--chocolate);
+    }
+
+    &:nth-child(4) {
+      --color: var(--khaki);
+    }
+
+    &:nth-child(5) {
+      --color: var(--grey);
+    }
+  }
+}
+
+.item:not(:first-child) {
+  .palette > div {
+    background: color-mix(
+      in srgb,
+      var(--color),
+      var(--mix, var(--color)) var(--amount, 10%)
+    );
+  }
+}
+
+.cool {
+  --mix: var(--mix-cool);
+}
+
+.cool--20 {
+  --amount: 20%;
+}
+
+.warm {
+  --mix: var(--mix-warm);
+}
+
+.warm--20 {
+  --amount: 20%;
+}

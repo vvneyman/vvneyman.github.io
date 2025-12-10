@@ -245,6 +245,46 @@ startGameBtn.addEventListener('click', () => {
     startTimer();
 });
 
+const controlTooltips = {
+    'threadingDraft': 'threading: creates inherent patterns in your weaving vertically',
+    'tieupDraft': 'tie-up: connection between threads and pedals, helps create horizontal patterns',
+    'reedDensity': 'reed density: texture change, how many blocks do you want?',
+    'warpColor': 'warp color: color for the vertical threads',
+    'weftColor': 'weft Color: color for the horizontal threads',
+    'treadlingSection': 'treadles: pedals, the order of your sequence can be determined by you',
+    'beaterBtn': 'beater: CLICK to weave! ',
+    'timer': 'timer: you have a bit to yourself before the fabric resets',
+    'hoverToggleBtn': 'help toggle: turn these floating instructions on or off'
+};
+
+const tooltipEl = document.getElementById('hoverTooltip');
+const tooltipText = document.getElementById('tooltipText');
+
+document.addEventListener('mousemove', (e) => {
+    if (state.hoversEnabled && tooltipEl.style.display === 'block') {
+        
+        tooltipEl.style.left = (e.pageX + 15) + 'px';
+        tooltipEl.style.top = (e.pageY + 15) + 'px';
+    }
+});
+
+Object.keys(controlTooltips).forEach(id => {
+    const targetEl = document.getElementById(id);
+    
+    if (targetEl) {
+        targetEl.addEventListener('mouseenter', () => {
+            if (state.hoversEnabled) {
+                tooltipText.textContent = controlTooltips[id];
+                tooltipEl.style.display = 'block';
+            }
+        });
+
+        targetEl.addEventListener('mouseleave', () => {
+            tooltipEl.style.display = 'none';
+        });
+    }
+});
+
 updateThreadingDisplay();
 updateTieupDisplay();
 updateTreadlingDisplay();
