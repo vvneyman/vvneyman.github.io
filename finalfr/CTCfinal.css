@@ -1,0 +1,350 @@
+/* look into resizing and moving around CSS compontents, try  */
+
+html, body {
+    height: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    background: url('/Users/vneyman/Desktop/CTC/scans/ background.png'),center/cover no-repeat;
+    z-index: -1;
+    padding: 10px; 
+    display: flex;
+    gap: 20px;
+}
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: rgb(162, 159, 156);
+    padding: 50px;
+    border-radius: 8px;
+    max-width: 600px;
+    text-align: center;
+}
+
+.tooltip {
+    position: absolute;
+    background: rgba(0,0,0,0.9);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 100;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.control-section:hover .tooltip,
+#treadlingSection:hover .tooltip,
+#threadingDraft:hover .tooltip,
+#tieupDraft:hover .tooltip {
+    opacity: 1;
+}
+
+body.hovers-off .tooltip {
+    display: none;
+}
+
+.left-panel {
+    z-index: 1;
+    opacity: 1;
+    background:url('/Users/vneyman/Desktop/CTC/scans/lightfelt.png'),center/cover no-repeat;
+    padding: 12px;
+    border-radius: 8px;
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: 100vh;
+    overflow-y: auto;
+}
+
+.push-btn {
+    width: 100%;
+    padding: 20px;
+    background:url('/Users/vneyman/Desktop/digi photos/pngs/beater.png') no-repeat center/70% auto;
+    border: none;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.2s;
+}
+
+/*.push-btn:active {
+    transform: scale(0.98);
+} */
+
+.treadle-row {
+    width: 100%;
+}
+
+.treadle-btn {
+    width: 100%;
+    padding: 20px 0;
+    background: #7a6464;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: background 0.2s;
+}
+
+.treadle-btn:hover {
+    background: #5a4444;
+}
+
+.treadle-btn.active {
+    background: #4a3434;
+}
+
+.treadling-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 8px;
+}
+
+
+.control-section {
+    background: rgb(168, 151, 121);
+    padding: 8px;
+    border-radius: 6px;
+}
+
+.threading-draft, .tieup-draft {
+    display: grid;
+    gap: 1px;
+    background: rgb(210, 194, 175);
+    padding: 2px;
+    border-radius: 4px;
+}
+
+.threading-draft {
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+}
+
+.tieup-draft {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+}
+
+.right-panel {
+    flex: 1;
+    background: url('/Users/vneyman/Desktop/CTC/scans/lightfelt.png'),center no-repeat;
+    background-size: 20% auto;
+    border-radius: 8px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    max-height: 100vh;
+}
+
+.header {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.toggle-cell {
+    aspect-ratio: 1;
+    background: white;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+    border-radius: 2px;
+}
+
+.toggle-cell.active {
+    background: #333;
+}
+
+.toggle-cell:hover {
+    opacity: 0.8;
+}
+
+#reedDensity {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 8px;
+    background: #d2c2af;     
+    border-radius: 4px;
+}
+
+#reedDensity::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #75573f;     
+    cursor: pointer;
+}
+
+#reedDensity::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #75573f;
+    cursor: pointer;
+}
+
+.slider-control {
+    margin-top: 4px;
+}
+
+.slider-control label {
+    display: block;
+    margin-bottom: 2px;
+    font-size: 11px;
+    color: #75573f;
+}
+
+.slider-control input[type="range"] {
+    width: 100%;
+    height: 12px;
+    /*-webkit-appearance: none;
+    appearance: none;
+    background: transparent; */
+}
+
+.slider-control input[type="range"] {
+    width: 100%;
+    height: 12px;
+} 
+
+
+.slider-value {
+    text-align: center;
+    margin-top: 2px;
+    font-size: 11px;
+    color: #75573f;
+}
+
+.timer-display {
+    background: rgb(168, 151, 121);
+    color: rgb(210, 194, 175);
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/*.fabric-canvas {
+    flex: 1;
+    position: relative;
+    min-height: 0px;
+    background: url('/Users/vneyman/Desktop/digi photos/pngs/RELEASEMEEE.png');
+    background-size: cover;
+    background-position: center;
+   /* border: 2px solid #ccc; 
+    border-radius: 4px;
+    overflow-y: auto;
+    padding: 6px;
+}*/
+
+.fabric-row {
+    position: relative; 
+    z-index: 3; 
+    display: flex;
+    height: 30px;
+    margin-bottom: 2px;
+}
+
+.warp-thread {
+    flex: 1;
+    margin-right: 2px;
+    border-radius: 6px;
+}
+
+/*.warp-thread.raised {
+    background:var(--warp-color, #000000);
+}
+
+.warp-thread.lowered {
+    background: var(--weft-color, #ffffff);
+} */
+
+
+.color-picker-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+}
+
+.color-picker-group.horizontal {
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.color-picker-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.color-picker-item label {
+  font-size: 11px;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.color-mini {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.color-mini label {
+    font-size: 11px;
+    color: #333;
+}
+
+.color-picker-item input[type="color"] {
+    width: 50px;
+    height: 30px;
+    border: 2px solid #666;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.color-preview {
+    width: 60px;
+    height: 30px;
+    border: 2px solid #666;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+/* .info-text {
+    position: relative;
+    z-index: 5;
+    margin-top: 10px;
+    padding: 10px;
+    background: rgba(255, 243, 224, 0.9);
+    border-radius: 4px;
+    font-size: 12px;
+    color: #666;
+}

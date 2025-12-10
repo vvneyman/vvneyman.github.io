@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>CTCfinal</title>
+<link rel="stylesheet" href="CTCfinal.css" />
+</head>
+<body>
+
+<div id="welcomeModal" class="modal-overlay">
+  <div class="modal-content">
+    <h2>digital loomscape</h2>
+    <p>weave to your heart's desire</p>
+    <button id="startGameBtn">Start</button>
+  </div>
+</div>
+
+<div class="left-panel">
+<div class="control-section" data-tooltip="Threading controls which shafts each warp end is on.">
+<div class="threading-draft" id="threadingDraft"></div>
+</div>
+
+
+<div class="control-section" data-tooltip="Tie-up connects shafts to treadles.">
+<div class="tieup-draft" id="tieupDraft"></div>
+</div>
+
+
+<div class="control-section">
+<div class="slider-control">
+<label for="reedDensity">Ends per inch:</label>
+<input type="range" id="reedDensity" min="4" max="32" value="16" step="2">
+<div class="slider-value" id="reedValue">16</div>
+</div>
+</div>
+
+
+<div class="control-section" data-tooltip="Pick warp (vertical) and weft (horizontal) colors.">
+
+<div class="color-picker-group horizontal">
+<div class="color-picker-item">
+<label for="warpColor">Warp (vert):</label>
+<input type="color" id="warpColor" value="#000000">
+
+</div>
+<div class="color-picker-item">
+<label for="weftColor">Weft (horiz):</label>
+<input type="color" id="weftColor" value="#ffffff">
+
+</div>
+</div>
+</div>
+
+
+
+<div class="control-section">
+<div class="treadling-section" id="treadlingSection" data-tooltip="Click treadles to select which ones are active."></div>
+</div>
+
+
+<button id="push-btn"></button>
+<button class="push-btn" id="beaterBtn" data-tooltip="send your row!"></button>
+</div>
+
+
+<div class="right-panel">
+<div class="header">
+<div class="timer-display">Time: <span id="timer">00:00</span></div>
+<button id="hoverToggleBtn" class="hover-toggle-btn">Help: On</button>
+</div>
+<div class="fabric-canvas" id="fabricCanvas"></div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/p5@1.11.0/lib/p5.min.js"></script>
+<script src="CTCfinal.js"></script>
+
+
+</body>
+</html>
+
