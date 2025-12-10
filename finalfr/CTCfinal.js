@@ -25,16 +25,7 @@ state.timer = TIMER_DURATION;
 let timerInterval = null;
 
 state.hoversEnabled = true;
-function createTooltips() {
-    const controls = document.querySelectorAll('[data-tooltip]');
 
-controls.forEach(control => {
-        const tooltip = document.createElement('div');
-        tooltip.className = 'tooltip';
-        tooltip.textContent = control.dataset.tooltip;
-        control.appendChild(tooltip);
-    });
-}
 
 const hoverToggleBtn = document.getElementById('hoverToggleBtn');
 hoverToggleBtn.addEventListener('click', () => {
@@ -44,7 +35,6 @@ hoverToggleBtn.addEventListener('click', () => {
     document.body.classList.toggle('hovers-off', !state.hoversEnabled);
 });
 
-createTooltips();
 
 const threadingDraft = document.getElementById('threadingDraft');
 for (let shaft = 0; shaft < 8; shaft++) {
@@ -239,6 +229,12 @@ if (timerInterval !== null) return;
 
     updateTimerDisplay();
 }, 1000);
+}
+
+function updateTimerDisplay() {
+    const minutes = Math.floor(state.timer / 60).toString().padStart(2, '0');
+    const seconds = (state.timer % 60).toString().padStart(2, '0');
+    document.getElementById('timer').textContent = `${minutes}:${seconds}`;
 }
 
 const welcomeModal = document.getElementById('welcomeModal');

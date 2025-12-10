@@ -31,41 +31,41 @@ body {
 
 .modal-content {
     background: rgb(162, 159, 156);
-    padding: 50px;
+    padding: 30px;
     border-radius: 8px;
     max-width: 600px;
     text-align: center;
 }
 
-.tooltip {
-    position: absolute;
-    background: rgba(0,0,0,0.9);
-    color: white;
-    padding: 8px 12px;
+.modal-content p {
+    margin: 5px 0 10px 0; 
+    line-height: 1.6;
+}
+
+#startGameBtn {
+    margin-top: 20px;     
+    display: block;  
+    margin-left: auto;
+    margin-right: auto;
+    padding: 6px 12px;
+    background: rgb(168, 151, 121);
+    color: rgb(242, 239, 235);
+    border: none;
     border-radius: 6px;
-    font-size: 12px;
-    white-space: nowrap;
-    pointer-events: none;
-    z-index: 100;
-    opacity: 0;
-    transition: opacity 0.2s;
+    cursor: pointer;
+    font-size: 16px;
+    font-family:inherit;
 }
 
-.control-section:hover .tooltip,
-#treadlingSection:hover .tooltip,
-#threadingDraft:hover .tooltip,
-#tieupDraft:hover .tooltip {
-    opacity: 1;
+body.hovers-off * {
+    cursor: default !important;
 }
 
-body.hovers-off .tooltip {
-    display: none;
-}
 
 .left-panel {
     z-index: 1;
     opacity: 1;
-    background:url('/Users/vneyman/Desktop/CTC/scans/lightfelt.png'),center/cover no-repeat;
+    background:url('/Users/vneyman/Desktop/CTC/scans/lightfelt.png') center/cover no-repeat;
     padding: 12px;
     border-radius: 8px;
     width: 320px;
@@ -74,19 +74,64 @@ body.hovers-off .tooltip {
     gap: 12px;
     max-height: 100vh;
     overflow-y: auto;
+    gap: 12px 0;
 }
 
 .push-btn {
     width: 100%;
-    padding: 20px;
-    background:url('/Users/vneyman/Desktop/digi photos/pngs/beater.png') no-repeat center/70% auto;
+    padding: 60px;
+    background:url('/Users/vneyman/Desktop/CTC/scans/pushbutton.png') no-repeat center/90% auto;
     border: none;
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
     cursor: pointer;
     border-radius: 8px;
-    transition: all 0.2s;
+    transition: transform 0.2s ease;
+}
+
+.push-btn:hover {
+    transform: scale(1.05);
+}
+
+.push-container {
+    position: relative;
+    display: block;
+}
+
+.push-tooltip {
+    position: absolute;
+    top: -35px;          
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.9);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: bold;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+    z-index: 10;
+}
+
+.push-btn:hover + .push-tooltip,
+.push-container:hover .push-tooltip {
+    opacity: 1;
+}
+
+body.hovers-off .push-tooltip {
+    opacity: 0 !important;
+}
+
+.hover-toggle-btn {
+    background: rgb(168, 151, 121);
+    color: rgb(210, 194, 175);
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: inherit; 
+    font-size: 12px;
 }
 
 /*.push-btn:active {
@@ -106,6 +151,7 @@ body.hovers-off .tooltip {
     cursor: pointer;
     border-radius: 6px;
     font-size: 14px;
+    font-family:inherit;
     transition: background 0.2s;
 }
 
@@ -150,8 +196,7 @@ body.hovers-off .tooltip {
 
 .right-panel {
     flex: 1;
-    background: url('/Users/vneyman/Desktop/CTC/scans/lightfelt.png'),center no-repeat;
-    background-size: 20% auto;
+    background: url('/Users/vneyman/Desktop/CTC/scans/lightfelt.png') center no-repeat;
     border-radius: 8px;
     padding: 12px;
     display: flex;
@@ -307,8 +352,9 @@ body.hovers-off .tooltip {
 
 .color-picker-item label {
   font-size: 11px;
-  color: #333;
+  color: #75573f;
   margin-bottom: 4px;
+  font-family: inherit;
 }
 
 .color-mini {
