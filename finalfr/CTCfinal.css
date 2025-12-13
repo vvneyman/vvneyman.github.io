@@ -12,7 +12,7 @@ html, body {
 
 body {
     overflow: hidden;
-    background: url('/Users/vneyman/Desktop/CTC/scans/ background.png'),center/cover no-repeat;
+    background: url('scans/ background.png'),center/cover no-repeat;
     background-size: 70% auto;
     z-index: -1;
     padding: 10px; 
@@ -66,7 +66,7 @@ body.hovers-off * {
 .left-panel {
     z-index: 1;
     opacity: 1;
-    background:url('/Users/vneyman/Desktop/CTC/scans/lightfelt.png') center/cover no-repeat;
+    background:url('/Users/vneyman/Desktop/CTC/vneyman.github.io/finalfr/scans/lightfelt.png') center/cover no-repeat;
     padding: 12px;
     border-radius: 8px;
     width: 320px;
@@ -81,7 +81,7 @@ body.hovers-off * {
 .push-btn {
     width: 100%;
     padding: 60px;
-    background:url('/Users/vneyman/Desktop/CTC/scans/pushbutton.png') no-repeat center/90% auto;
+    background:url('scans/pushbutton.png') no-repeat center/90% auto;
     border: none;
     cursor: pointer;
     border-radius: 8px;
@@ -197,7 +197,7 @@ body.hovers-off .push-tooltip {
 
 .right-panel {
     flex: 1;
-    background: url('/Users/vneyman/Desktop/CTC/scans/lightfelt.png') center no-repeat;
+    background: url('scans/lightfelt.png') center no-repeat;
     border-radius: 8px;
     padding: 12px;
     display: flex;
