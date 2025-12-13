@@ -1,0 +1,32 @@
+ body {
+            margin: 0;
+            padding: 20px;
+            background: #e09e51;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        button {
+            background: #ffda36;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 20px;
+        }
+
+        button:hover {
+            background: #fff175;
+            transform: translateY(-2px);
+        }
+
+        #ovals {
+            background: #f2b264;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
