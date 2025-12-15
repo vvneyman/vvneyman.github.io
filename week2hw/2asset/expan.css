@@ -13,22 +13,6 @@ body {
     align-items: baseline;
     z-index: 1;
 }
-
-.container {
-    position: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: darkred;
-    animation: grow 5s infinite;
-    z-index: 0;
-
-    @keyframes grow {
-        0% {transform: scale(1);} 
-        50% {transform: scale(1.2);} 
-        100% {transform: scale(2);} 
-    }
-}
         
 .letter {
     color: #000000;

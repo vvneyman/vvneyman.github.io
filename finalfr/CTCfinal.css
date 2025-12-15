@@ -66,7 +66,7 @@ body.hovers-off * {
 .left-panel {
     z-index: 1;
     opacity: 1;
-    background:url('scans/lightfelt.png') center/cover no-repeat;
+    background:url('scans/lightfelt.png'), center/cover no-repeat;
     padding: 12px;
     border-radius: 8px;
     width: 320px;

@@ -1,0 +1,28 @@
+body {
+    background-color:rgb(209, 209, 209) ;
+    font-family: "Copperplate", sans-serif;
+    color:darkred;
+}
+
+p {
+    font-family:'Times New Roman', Times, serif;
+    color:darkred;
+    font-style: italic;
+    background-color:rgb(255, 255, 255) ;
+}
+
+a {
+    color:black
+}
+a:hover {
+    color:antiquewhite
+}
+
+#container {
+    display:inline;
+    width: 100px;
+    height: 40px;
+    color: darkred;
+    background-color:antiquewhite;
+    padding: 5px;
+}

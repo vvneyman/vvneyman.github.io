@@ -17,7 +17,6 @@ let mothPositions = [
 let isLightOn = false;
 let animationId;
 
-// Initialize moth positions at screen center
 function initializeMoths() {
     const centerX = window.innerWidth / 2;
     const centerY = window.innerHeight / 2;
@@ -45,14 +44,14 @@ function toggleLight() {
     if (isLightOn) {
         body.classList.add('on');
         
-        // Initialize moth positions when light turns on
+        
         initializeMoths();
         
         setTimeout(() => {
             moths.forEach(moth => {
                 if (moth) moth.classList.add('visible');
             });
-        }, 400); // Delay to match lightbulb drop animation
+        }, 400); 
         
         startMothAnimation();
     } else {

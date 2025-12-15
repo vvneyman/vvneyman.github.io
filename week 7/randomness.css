@@ -1,7 +1,7 @@
 body {
         margin: 0;
         padding: 0;
-        background-color: rgb(145, 184, 218);
+        background-color: rgb(108, 152, 126);
         font-family: 'Courier New', monospace;
         display: flex;
         flex-direction: column;
@@ -19,7 +19,7 @@ body {
     }
 
     button {
-        background-color: #6584c2;
+        background-color: #9a5694;
         color: white;
         border: none;
         padding: 15px 30px;
